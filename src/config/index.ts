@@ -8,9 +8,10 @@ export const SITE_CONFIG: SiteConfig = {
   lang: "en",
   siteLogo: "/katherine-mini-pfp.jpg",
   navLinks: [
+    { text: "About", href: "#about" },
+    { text: "Resume", href: "#resume" },
     { text: "Experience", href: "#experience" },
     { text: "Projects", href: "#projects" },
-    { text: "About", href: "#about" },
   ],
   socialLinks: [
     { text: "LinkedIn", href: "https://www.linkedin.com/in/kchang312/" },
@@ -27,6 +28,14 @@ export const SITE_CONTENT: SiteContent = {
     summary:
       "Computer engineering undergradute with specialization in enterprise data management and analytics.",
     email: "kc6107j@gmail.com",
+  },
+  about: {
+    description: `
+      Hi, I'm Katherine! I am currently a fourth-year Computer Engineering undergraduate at Georgia Tech with concentrations in Distributed Systems and Information Internetworks. I specialize in database management and data analysis revolving around financial technology.
+
+      Over the years, I’ve honed my skills in building technical projects and worked in diverse environments, from network labs to commercial banking. I thrive in fast-paced environments and enjoy discovering ways in how technology can be integrated in financial institutions or services for optimization. 
+    `,
+    image: "/katherine-mini-pfp.jpg", // need to fix
   },
   experience: [
     {
@@ -82,14 +91,6 @@ export const SITE_CONTENT: SiteContent = {
       image: "/clone-ig.png",
     },
   ],
-  about: {
-    description: `
-      Hi, I'm Katherine! I am currently a fourth-year Computer Engineering undergraduate at Georgia Tech with concentrations in Distributed Systems and Information Internetworks. I specialize in database management and data analysis revolving around financial technology.
-
-      Over the years, I’ve honed my skills in building technical projects and worked in diverse environments, from network labs to commercial banking. I thrive in fast-paced environments and enjoy discovering ways in how technology can be integrated in financial institutions or services for optimization. 
-    `,
-    image: "/katherine-pfp.jpg", // need to fix
-  },
 };
 
 // #39703b
