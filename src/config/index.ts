@@ -68,6 +68,7 @@ export const SITE_CONTENT: SiteContent = {
       linkPreview: "/",
       linkSource: "https://github.com/immois/astro-zen",
       image: "/spotifu.png",
+      category: "Engineering",
     },
     {
       name: "Crypto-Traditional MArket Correlation Analysis",
@@ -75,6 +76,7 @@ export const SITE_CONTENT: SiteContent = {
       linkPreview: "/",
       linkSource: "https://github.com/immois/astro-zen",
       image: "/clone-ig.png",
+      category: "Analysis",
     },
     {
       name: "Emergency Room Management System",
@@ -82,6 +84,7 @@ export const SITE_CONTENT: SiteContent = {
       linkPreview: "/",
       linkSource: "https://github.com/immois/astro-zen",
       image: "/shopify-clon.png",
+      category: "Analysis",
     },
     {
       name: "Growth Stock Porfolio",
@@ -89,6 +92,7 @@ export const SITE_CONTENT: SiteContent = {
       linkPreview: "/",
       linkSource: "https://github.com/immois/astro-zen",
       image: "/clone-ig.png",
+      category: "Engineering",
     },
     {
       name: "Secure Voting Machine (Secuirty Module)",
@@ -96,6 +100,7 @@ export const SITE_CONTENT: SiteContent = {
       linkPreview: "/",
       linkSource: "https://github.com/immois/astro-zen",
       image: "/clone-ig.png",
+      category: "Engineering",
     },
   ],
 };

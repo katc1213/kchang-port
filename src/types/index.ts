@@ -35,6 +35,7 @@ export interface ProjectProps {
   image: string;
   linkPreview?: string;
   linkSource?: string;
+  category: string;
 }
 
 export interface HeaderProps {

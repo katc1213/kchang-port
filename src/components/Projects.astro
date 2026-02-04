@@ -8,52 +8,166 @@ interface Props {
 }
 
 const { projects } = Astro.props;
+
+// Split projects into three categories
+// You'll need to add a 'category' field to your projects data
+const analysisProjects = projects.filter(p => p.category === 'Analysis');
+const engineeringProjects = projects.filter(p => p.category === 'Engineering');
+const researchProjects = projects.filter(p => p.category === 'Research');
+
+const categories = [
+  { name: 'Analysis', projects: analysisProjects },
+  { name: 'Engineering', projects: engineeringProjects },
+  { name: 'Research', projects: researchProjects }
+];
 ---
 
 <Section text="Featured Projects" href="projects">
-  {
-    projects.map(({ name, summary, image, linkPreview, linkSource }, index) => {
-      const top = 98 + index * 40;
-      return (
-        <div
-          style={`top: ${top}px;`}
-          class="sticky mb-12 rounded-2xl border border-neutral/20 bg-black"
-        >
-          <div class="bg-difu relative z-[1] grid h-[580px] w-full grid-rows-2 rounded-2xl bg-[#1c232d]/85 before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/raja.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[5%] before:content-[''] sm:grid-cols-2 sm:grid-rows-1 md:h-96">
-            <div class="px-6 pt-12">
-              <h3 class="mb-5 font-serif text-3xl font-medium text-primary">
-                {name}
-              </h3>
-              <p class="text-base text-neutral">{summary}</p>
-              <div class="flex gap-5 pt-10 text-white">
-                <a
-                  href={linkSource}
-                  target="_blank"
-                  class="after:relative after:bottom-[-5px] after:content-[url(/external.svg)] hover:underline"
+  <div class="space-y-16">
+    {categories.map((category, categoryIndex) => (
+      <div class="category-section">
+        <h2 class="text-3xl font-bold text-primary mb-8">{category.name}</h2>
+        
+        <div class="relative" data-category={categoryIndex}>
+          <!-- Card Stack Container -->
+          <div class="card-stack relative h-[580px] sm:h-96">
+            {category.projects.map((project, index) => {
+              const { name, summary, image, linkPreview, linkSource } = project;
+              return (
+                <div
+                  class={`project-card absolute inset-0 transition-all duration-500 cursor-pointer ${index === 0 ? 'active' : ''}`}
+                  data-index={index}
+                  style={`transform: translateY(${index * 20}px) scale(${1 - index * 0.05}); z-index: ${category.projects.length - index};`}
                 >
-                  Source
-                </a>
-                <a
-                  href={linkPreview}
-                  target="_blank"
-                  class="after:relative after:bottom-[-5px] after:content-[url(/external.svg)] hover:underline"
-                >
-                  Preview
-                </a>
-              </div>
-            </div>
-            <div class="flex items-end justify-end overflow-hidden">
-              <Image
-                class="h-full w-[95%] rounded-ss-xl rounded-ee-2xl object-none object-left-top sm:h-[85%] sm:w-full"
-                src={image}
-                alt={name}
-                width="736"
-                height="483"
-              />
-            </div>
+                  <div class="relative z-[1] grid h-full w-full grid-rows-2 rounded-2xl bg-[#1c232d]/85 border border-neutral/20 before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/raja.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[5%] before:content-[''] sm:grid-cols-2 sm:grid-rows-1">
+                    <div class="px-6 pt-12">
+                      <h3 class="mb-5 font-serif text-3xl font-medium text-primary">
+                        {name}
+                      </h3>
+                      <p class="text-base text-neutral">{summary}</p>
+                      <div class="flex gap-5 pt-10 text-white">
+                        <a
+                          href={linkSource}
+                          target="_blank"
+                          class="after:relative after:bottom-[-5px] after:content-[url(/external.svg)] hover:underline"
+                          onclick="event.stopPropagation()"
+                        >
+                          Source
+                        </a>
+                        <a
+                          href={linkPreview}
+                          target="_blank"
+                          class="after:relative after:bottom-[-5px] after:content-[url(/external.svg)] hover:underline"
+                          onclick="event.stopPropagation()"
+                        >
+                          Preview
+                        </a>
+                      </div>
+                    </div>
+                    <div class="flex items-end justify-end overflow-hidden">
+                      <Image
+                        class="h-full w-[95%] rounded-ss-xl rounded-ee-2xl object-none object-left-top sm:h-[85%] sm:w-full"
+                        src={image}
+                        alt={name}
+                        width="736"
+                        height="483"
+                      />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
+
+          <!-- Navigation Dots -->
+          {category.projects.length > 1 && (
+            <div class="flex justify-center gap-2 mt-6">
+              {category.projects.map((_, index) => (
+                <button
+                  class={`dot w-3 h-3 rounded-full transition-all ${index === 0 ? 'bg-primary w-8' : 'bg-neutral/30'}`}
+                  data-dot-index={index}
+                  data-category={categoryIndex}
+                />
+              ))}
+            </div>
+          )}
         </div>
-      );
-    })
-  }
+      </div>
+    ))}
+  </div>
 </Section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const categorySections = document.querySelectorAll('.category-section');
+    
+    categorySections.forEach((section, categoryIndex) => {
+      const cards = section.querySelectorAll('.project-card');
+      const dots = section.querySelectorAll('.dot');
+      let currentIndex = 0;
+
+      function updateCards(newIndex: number) {
+        if (newIndex < 0 || newIndex >= cards.length) return;
+        
+        currentIndex = newIndex;
+
+        cards.forEach((card, index) => {
+          const offset = index - currentIndex;
+          
+          if (offset < 0) {
+            // Cards that have been viewed - move them to the back
+            card.classList.remove('active');
+            (card as HTMLElement).style.transform = `translateY(${(cards.length + offset) * 20}px) scale(${1 - Math.abs(cards.length + offset) * 0.05})`;
+            (card as HTMLElement).style.zIndex = String(offset);
+            (card as HTMLElement).style.opacity = '0.3';
+          } else {
+            // Current and upcoming cards
+            card.classList.toggle('active', offset === 0);
+            (card as HTMLElement).style.transform = `translateY(${offset * 20}px) scale(${1 - offset * 0.05})`;
+            (card as HTMLElement).style.zIndex = String(cards.length - offset);
+            (card as HTMLElement).style.opacity = '1';
+          }
+        });
+
+        // Update dots
+        dots.forEach((dot, index) => {
+          if (index === currentIndex) {
+            dot.classList.add('bg-primary', 'w-8');
+            dot.classList.remove('bg-neutral/30', 'w-3');
+          } else {
+            dot.classList.remove('bg-primary', 'w-8');
+            dot.classList.add('bg-neutral/30', 'w-3');
+          }
+        });
+      }
+
+      // Click on card to go to next
+      cards.forEach((card) => {
+        card.addEventListener('click', () => {
+          updateCards((currentIndex + 1) % cards.length);
+        });
+      });
+
+      // Click on dots to jump to specific card
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          updateCards(index);
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  .project-card {
+    pointer-events: auto;
+  }
+  
+  .project-card.active {
+    pointer-events: auto;
+  }
+  
+  .card-stack {
+    perspective: 1000px;
+  }
+</style>
