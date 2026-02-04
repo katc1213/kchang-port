@@ -6,7 +6,7 @@ export const SITE_CONFIG: SiteConfig = {
   description:
     "Computer engineering undergradute with specialization in enterprise data management and analytics.",
   lang: "en",
-  siteLogo: "/alejandro-small.jpg",
+  siteLogo: "/katherine-mini-pfp.jpg",
   navLinks: [
     { text: "Experience", href: "#experience" },
     { text: "Projects", href: "#projects" },
@@ -88,8 +88,8 @@ export const SITE_CONTENT: SiteContent = {
 
       Over the years, I’ve honed my skills in building technical projects and worked in diverse environments, from network labs to commercial banking. I thrive in fast-paced environments and enjoy discovering ways in how technology can be integrated in financial institutions or services for optimization. 
     `,
-    image: "/alejandro-big.jpg",
+    image: "/katherine-pfp.jpg",
   },
 };
 
-// #5755ff
+// #39703b
