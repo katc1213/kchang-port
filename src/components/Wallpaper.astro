@@ -21,63 +21,6 @@
     </svg>
   </div>
 
-  <div class="code-rain">
-    <div class="code-column">
-      $NYSE<br />
-      +2.4%<br />
-      NASDAQ<br />
-      S&P500<br />
-      DOW<br />
-      EQUITY<br />
-      BONDS<br />
-      FX
-    </div>
-    <div class="code-column">
-      JPY/USD<br />
-      EUR/USD<br />
-      GBP<br />
-      FOREX<br />
-      CFD<br />
-      OPTIONS<br />
-      FUTURES
-    </div>
-    <div class="code-column">
-      BULL<br />
-      BEAR<br />
-      MARGIN<br />
-      LEVERAGE<br />
-      HEDGE<br />
-      PORTFOLIO<br />
-      ASSETS
-    </div>
-    <div class="code-column">
-      DIVIDEND<br />
-      YIELD<br />
-      PE RATIO<br />
-      ROI<br />
-      EPS<br />
-      EBITDA<br />
-      CAPEX
-    </div>
-    <div class="code-column">
-      TRADING<br />
-      BROKER<br />
-      SPREAD<br />
-      LIQUIDITY<br />
-      VOLUME<br />
-      VOLATILITY<br />
-      INDEX
-    </div>
-    <div class="code-column">
-      DEBT<br />
-      CREDIT<br />
-      DERIVATIVES<br />
-      COMMODITIES<br />
-      GOLD<br />
-      OIL<br />
-      RATES
-    </div>
-  </div>
 
   <div class="blockchain">
     <div class="block"></div>
@@ -102,15 +45,15 @@
   </svg>
 
   <div class="ticker">
-    S&P +1.2% | DOW 34,521 | NASDAQ +0.8%
+    CMPE 100 | KYC +4.0% | GT 2026
   </div>
 </div>
 
 <style>
   :root {
-    --gray-deep: #1a1d23;
-    --gray-mid: #23272f;
-    --gray-light: #2d3139;
+    --green-deep: #051609;
+    --green-mid: #122b11;
+    --green-light: #2a382a;
     --gray-accent: #3a3f4a;
     --gold-accent: #d4af37;
     --green-data: #33ff99;
@@ -126,7 +69,7 @@
     height: 100vh;
     z-index: -1;
     overflow: hidden;
-    background: linear-gradient(135deg, var(--gray-deep) 0%, var(--gray-mid) 50%, var(--gray-light) 100%);
+    background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-mid) 50%, var(--green-light) 100%);
   }
 
   /* Animated gradient overlay */
@@ -167,7 +110,6 @@
     100% { transform: translate(50px, 50px); }
   }
 
-  /* Circuit board lines */
   .circuit-lines {
     position: absolute;
     width: 100%;
@@ -238,7 +180,7 @@
     100% { top: 100%; opacity: 0; }
   }
 
-  /* Financial chart lines */
+// chart line
   .chart-container {
     position: absolute;
     bottom: 0;
@@ -284,41 +226,6 @@
   @keyframes rotateHex {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-  }
-
-  /* Code rain effect (Matrix-style) */
-  .code-rain {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-
-  .code-column {
-    position: absolute;
-    top: -100%;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 14px;
-    color: var(--green-data);
-    opacity: 0.06;
-    white-space: nowrap;
-    animation: codeRain 15s linear infinite;
-  }
-
-  .code-column:nth-child(1) { left: 10%; animation-delay: 0s; }
-  .code-column:nth-child(2) { left: 25%; animation-delay: 3s; font-size: 12px; }
-  .code-column:nth-child(3) { left: 40%; animation-delay: 1.5s; }
-  .code-column:nth-child(4) { left: 60%; animation-delay: 4s; font-size: 16px; }
-  .code-column:nth-child(5) { left: 75%; animation-delay: 2s; }
-  .code-column:nth-child(6) { left: 90%; animation-delay: 5s; font-size: 12px; }
-
-  @keyframes codeRain {
-    0% { top: -100%; opacity: 0; }
-    10% { opacity: 0.06; }
-    90% { opacity: 0.06; }
-    100% { top: 100%; opacity: 0; }
   }
 
   /* Blockchain chain visualization */

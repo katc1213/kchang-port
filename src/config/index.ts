@@ -4,7 +4,7 @@ export const SITE_CONFIG: SiteConfig = {
   title: "Katherine Chang",
   author: "Katherine Yuna Chang",
   description:
-    "Computer engineering undergradute with specialization in enterprise data management and analytics.",
+    "Computer engineering undergraduate & Minor in FinTech",
   lang: "en",
   siteLogo: "/katherine-mini-pfp.jpg",
   navLinks: [
@@ -25,9 +25,9 @@ export const SITE_CONFIG: SiteConfig = {
 export const SITE_CONTENT: SiteContent = {
   hero: {
     name: "Katherine Chang",
-    specialty: "Data Management and Analytics",
+    specialty: "Enterprise Data Management / Analytics",
     summary:
-      "Computer engineering undergradute with specialization in enterprise data management and analytics.",
+      "Computer engineering undergradute & Minor in FinTech",
     email: "kc6107j@gmail.com",
   },
   experience: [
