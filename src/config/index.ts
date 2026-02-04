@@ -78,8 +78,8 @@ export const SITE_CONTENT: SiteContent = {
       image: "/spotifu.png",
     },
     {
-      name: "Shopp App",
-      summary: "An e-commerce platform that replicates Shopify's key features.",
+      name: "Emergency Room Management System",
+      summary: "Database system with patient, room, and doctor information.",
       linkPreview: "/",
       linkSource: "https://github.com/immois/astro-zen",
       image: "/shopify-clon.png",
