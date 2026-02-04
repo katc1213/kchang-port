@@ -30,14 +30,6 @@ export const SITE_CONTENT: SiteContent = {
       "Computer engineering undergradute with specialization in enterprise data management and analytics.",
     email: "kc6107j@gmail.com",
   },
-  about: {
-    description: `
-      Hi, I'm Katherine! I am currently a fourth-year Computer Engineering undergraduate at Georgia Tech with concentrations in Distributed Systems and Information Internetworks. I specialize in database management and data analysis revolving around financial technology.
-
-      Over the years, I’ve honed my skills in building technical projects and worked in diverse environments, from network labs to commercial banking. I thrive in fast-paced environments and enjoy discovering ways in how technology can be integrated in financial institutions or services for optimization. 
-    `,
-    image: "/katherine-mini-pfp.jpg", // need to fix
-  },
   experience: [
     {
       company: "Citizens Bank",
@@ -78,6 +70,13 @@ export const SITE_CONTENT: SiteContent = {
       image: "/spotifu.png",
     },
     {
+      name: "Crypto-Traditional MArket Correlation Analysis",
+      summary: "A social network that replicates the features of Instagram",
+      linkPreview: "/",
+      linkSource: "https://github.com/immois/astro-zen",
+      image: "/clone-ig.png",
+    },
+    {
       name: "Emergency Room Management System",
       summary: "Database system with patient, room, and doctor information.",
       linkPreview: "/",
@@ -85,7 +84,14 @@ export const SITE_CONTENT: SiteContent = {
       image: "/shopify-clon.png",
     },
     {
-      name: "ClonTagram",
+      name: "Growth Stock Porfolio",
+      summary: "A social network that replicates the features of Instagram",
+      linkPreview: "/",
+      linkSource: "https://github.com/immois/astro-zen",
+      image: "/clone-ig.png",
+    },
+    {
+      name: "Secure Voting Machine (Secuirty Module)",
       summary: "A social network that replicates the features of Instagram",
       linkPreview: "/",
       linkSource: "https://github.com/immois/astro-zen",
