@@ -9,9 +9,10 @@ export const SITE_CONFIG: SiteConfig = {
   siteLogo: "/katherine-mini-pfp.jpg",
   navLinks: [
     { text: "About", href: "#about" },
-    { text: "Resume", href: "#resume" },
+    { text: "Resume", href: "/resume_09232025.pdf"},
     { text: "Experience", href: "#experience" },
     { text: "Projects", href: "#projects" },
+    { text: "Blog", href: "#blog" },
   ],
   socialLinks: [
     { text: "LinkedIn", href: "https://www.linkedin.com/in/kchang312/" },
