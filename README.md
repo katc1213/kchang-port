@@ -1,30 +1,19 @@
-# AstroZen - Personal Portfolio Website
+# Katherine's Personal Portfolio Website
+I will continue to build this portfolio as I build more fintech projects and continue to study effects of modern technology on finance industry.
+Note: This website is modified from AstroZen's personal website.
 
-AstroZen is a minimalist, accessible and responsive portfolio template for your personal portfolio website. It is built with Astro and TailwindCSS.
+## Features In Work
+- Security to keep out outside modifications
+- Smooth visual transitions as user scrolls
+- Find preview covers for projects
 
-![zen-og](https://github.com/user-attachments/assets/7a72aaae-6652-4cd0-becc-8e6a3c224993)
-
-> [!NOTE]
-> The information contained in this template, including names, images, and content, is entirely fictitious and is intended solely to give the design a realistic appearance. Any coincidence with real-life people, events, or situations is purely coincidental. It is recommended that you replace this information with your own information.
-
-## 🔥 Features
-
-- [x] Minimalist design. clean and simple
-- [x] Mobile-first responsive layout
-- [x] SEO-friendly and accessible
-- [x] Easy to customize with a single configuration file
-
-## ✅ Lighthouse Score
-
-![performance](https://github.com/user-attachments/assets/4f95e2ca-03f9-4996-9e34-dcd179194c58)
-
-## 🚀 Getting Started
+## Deploying website
 
 Clone this repository to your local machine using Git.
 
 ```scheme
-git clone https://github.com/immois/astro-zen.git
-cd astro-zen
+git clone https://github.com/katc1213/kchang-port.git
+cd kchang-port
 ```
 
 | Command        | Action                                       |
