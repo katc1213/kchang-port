@@ -1,46 +1,59 @@
 ---
 import Menu from "@icons/Menu.astro";
-import { Image } from "astro:assets";
 import type { HeaderProps } from "@types";
 
 type Props = HeaderProps;
 
-const { siteLogo, navLinks } = Astro.props;
+const { navLinks } = Astro.props;
 ---
 
 <header
-  class="sticky top-0 z-50 mx-auto flex max-w-5xl animate-slide-in justify-between bg-black px-5 py-6"
+  id="main-header"
+  class="fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-auto"
 >
-  <a href="/" aria-label="Home link">
-    <Image
-      class="rounded-full"
-      src={siteLogo}
-      width="45"
-      height="45"
-      alt="website logo"
-    />
-  </a>
+  <div class="header-container bg-black/0 backdrop-blur-none rounded-full border border-white/0 px-8 py-4 transition-all duration-300">
+    <button
+      type="button"
+      id="menu-button"
+      class="px-1.5 text-neutral sm:hidden"
+      aria-expanded="false"
+      aria-controls="main-menu"
+    >
+      <Menu />
+    </button>
 
-  <button
-    type="button"
-    id="menu-button"
-    class="px-1.5 text-neutral sm:hidden"
-    aria-expanded="false"
-    aria-controls="main-menu"
-  >
-    <Menu />
-  </button>
+    <nav
+      class="hidden sm:block"
+      id="main-menu"
+    >
+      <ul class="flex gap-6">
+        {
+          navLinks.map((link) => (
+            <li class="relative">
+              <a
+                class={`nav-item relative block px-4 py-2 text-sm font-medium text-white/70 transition-all duration-300 hover:text-white rounded-full hover:bg-white/10`}
+                href={link.href}
+              >
+                {link.text}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
 
+  <!-- Mobile menu -->
   <nav
-    class="absolute top-20 right-5 hidden rounded-xl border border-neutral/40 bg-black px-4 py-5 text-neutral sm:static sm:block sm:border-0 sm:bg-transparent sm:p-0"
-    id="main-menu"
+    class="absolute top-16 right-0 hidden rounded-xl border border-neutral/40 bg-black/90 backdrop-blur-lg px-6 py-5 text-neutral sm:hidden"
+    id="mobile-menu"
   >
-    <ul class="gap-2 sm:flex">
+    <ul class="flex flex-col gap-2">
       {
         navLinks.map((link) => (
-          <li class="relative">
+          <li>
             <a
-              class={`nav-item relative block p-2 text-sm font-medium transition-all duration-500 after:absolute after:bottom-0 after:left-2/4 after:h-2 after:w-1 after:-translate-x-2/4 after:text-primary after:opacity-0 after:content-['•'] hover:text-white`}
+              class="block px-4 py-2 text-sm font-medium text-white/70 transition-all duration-300 hover:text-white rounded-lg hover:bg-white/10"
               href={link.href}
             >
               {link.text}
@@ -55,12 +68,12 @@ const { siteLogo, navLinks } = Astro.props;
 <script>
   // Toggle mobile menu
   const button = document.querySelector("#menu-button");
-  const menu = document.querySelector("#main-menu");
-  const navItems = document.querySelectorAll("#main-menu > ul > li > a");
+  const mobileMenu = document.querySelector("#mobile-menu");
+  const navItems = document.querySelectorAll("#main-menu a, #mobile-menu a");
 
   const toggleMenu = () => {
-    menu?.classList.toggle("hidden");
-    const isHidden = menu?.classList.contains("hidden");
+    mobileMenu?.classList.toggle("hidden");
+    const isHidden = mobileMenu?.classList.contains("hidden");
     button?.setAttribute("aria-expanded", `${!isHidden}`);
   };
 
@@ -69,16 +82,41 @@ const { siteLogo, navLinks } = Astro.props;
     item?.addEventListener("click", toggleMenu);
   });
 
+  // Transform header on scroll
+  const header = document.querySelector("#main-header");
+  const headerContainer = document.querySelector(".header-container");
+  
+  let lastScroll = 0;
+  
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.scrollY;
+    
+    if (currentScroll > 100) {
+      // Scrolled down - show floating rounded tab
+      headerContainer?.classList.remove("bg-black/0", "backdrop-blur-none", "border-white/0");
+      headerContainer?.classList.add("bg-black/80", "backdrop-blur-lg", "border-white/10", "shadow-2xl");
+    } else {
+      // At top - transparent
+      headerContainer?.classList.remove("bg-black/80", "backdrop-blur-lg", "border-white/10", "shadow-2xl");
+      headerContainer?.classList.add("bg-black/0", "backdrop-blur-none", "border-white/0");
+    }
+    
+    lastScroll = currentScroll;
+  });
+
   // Update navigation based on scroll position with Intersection Observer
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           navItems.forEach((item) => {
-            if (item.getAttribute("href") === `#${entry.target.id}`) {
-              item.classList.add("text-white", "md:after:opacity-100");
-            } else {
-              item.classList.remove("text-white", "md:after:opacity-100");
+            const href = item.getAttribute("href");
+            if (href && href.startsWith("#") && href === `#${entry.target.id}`) {
+              item.classList.add("text-white", "bg-white/10");
+              item.classList.remove("text-white/70");
+            } else if (href && href.startsWith("#")) {
+              item.classList.remove("text-white", "bg-white/10");
+              item.classList.add("text-white/70");
             }
           });
         }
@@ -102,10 +140,3 @@ const { siteLogo, navLinks } = Astro.props;
     }
   };
 </script>
-
-<style>
-  header {
-    animation-timeline: scroll();
-    animation-range: 0 650px;
-  }
-</style>

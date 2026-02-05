@@ -5,11 +5,11 @@ type Props = HeroProps;
 const { name, specialty, summary, email } = Astro.props;
 ---
 
-<section class="py-24 md:py-32 flex flex-col items-center text-center" id="#hero">
+<section class="min-h-screen flex flex-col items-center justify-center text-center relative" id="hero">
   <!-- Credit Card Container -->
-  <div class="relative w-full max-w-4xl mx-auto mb-16">
+  <div class="relative w-full max-w-4xl mx-auto mb-8">
     <!-- Credit Card Background -->
-    <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl p-12 md:p-16 shadow-2xl border border-gray-700">
+    <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl p-12 md:p-16 shadow-2xl border border-gray-700 relative overflow-hidden">
       <!-- Chip Design (optional decorative element) -->
       <div class="absolute top-8 left-8 w-12 h-10 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-md opacity-80"></div>
       
@@ -39,7 +39,14 @@ const { name, specialty, summary, email } = Astro.props;
   </div>
 
   <a
-    class="inline-block rounded-full bg-primary px-8 py-5 text-sm leading-5 font-medium text-[#fff] hover:bg-primary/90 transition-colors"
+    class="inline-block rounded-full bg-primary px-8 py-5 text-sm leading-5 font-medium text-[#fff] hover:bg-primary/90 transition-colors shadow-lg"
     href={`mailto:${email}`}>Contact Me</a
   >
+
+  <!-- Scroll indicator (optional) -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
+  </div>
 </section>

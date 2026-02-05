@@ -28,7 +28,7 @@ const ogImgUrl = canonicalURL + socialImage;
     <meta name="description" content={description} />
     <meta name="author" content={author} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/kchang-pfp.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
@@ -52,6 +52,9 @@ const ogImgUrl = canonicalURL + socialImage;
     <!-- Animated Wallpaper Background -->
     <Wallpaper />
     
+    <!-- Dark overlay that appears on scroll -->
+    <div id="scroll-overlay" class="fixed inset-0 bg-black pointer-events-none transition-opacity duration-500 opacity-0 z-[5]"></div>
+    
     <Header siteLogo={siteLogo} navLinks={navLinks} />
     <main class="w-full px-8 md:px-16 lg:px-24 relative z-10">
       <slot />
@@ -59,3 +62,31 @@ const ogImgUrl = canonicalURL + socialImage;
     <Footer author={author} socialLinks={socialLinks} />
   </body>
 </html>
+
+<script>
+  // Darken background when scrolling past hero
+  window.addEventListener('scroll', () => {
+    const heroSection = document.getElementById('hero');
+    const overlay = document.getElementById('scroll-overlay');
+    
+    if (!heroSection || !overlay) return;
+    
+    const heroHeight = heroSection.offsetHeight;
+    const scrollPosition = window.scrollY;
+    
+    // Calculate opacity based on scroll position
+    // Starts fading in after 50% of hero is scrolled
+    const fadeStart = heroHeight * 0.5;
+    const fadeEnd = heroHeight;
+    
+    if (scrollPosition < fadeStart) {
+      overlay.style.opacity = '0';
+    } else if (scrollPosition >= fadeEnd) {
+      overlay.style.opacity = '0.7'; // Maximum darkness (70% black overlay)
+    } else {
+      // Gradual fade between fadeStart and fadeEnd
+      const progress = (scrollPosition - fadeStart) / (fadeEnd - fadeStart);
+      overlay.style.opacity = String(progress * 0.7);
+    }
+  });
+</script>

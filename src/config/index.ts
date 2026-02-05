@@ -18,8 +18,8 @@ export const SITE_CONFIG: SiteConfig = {
     { text: "LinkedIn", href: "https://www.linkedin.com/in/kchang312/" },
     { text: "Github", href: "https://github.com/katc1213" },
   ],
-  socialImage: "/zen-og.png",
-  canonicalURL: "https://astro-zen.vercel.app",
+  socialImage: "/kchang-logo.png",
+  canonicalURL: "https://kchang-port.vercel.app",
 };
 
 export const SITE_CONTENT: SiteContent = {
@@ -27,7 +27,7 @@ export const SITE_CONTENT: SiteContent = {
     name: "Katherine Chang",
     specialty: "Enterprise Data Management / Analytics",
     summary:
-      "Computer engineering undergradute & Minor in FinTech",
+      "Computer Engineering Undergraduate with Minor in FinTech",
     email: "kc6107j@gmail.com",
   },
   experience: [
@@ -48,8 +48,8 @@ export const SITE_CONTENT: SiteContent = {
       startDate: "May 2025",
       endDate: "August 2025",
       summary: [
-        "I designed and developed a mobile application using Flutter, allowing it to be deployed on both Android and iOS with a single codebase. This reduced development time by 50% and maintenance costs by 30%, facilitating a consistent user experience on both platforms.",
-        "I integrated biometric authentication and data encryption, significantly improving the security of user data. This implementation resulted in a 40% increase in user trust and a 25% reduction in unauthorized access attempts.",
+        "Built CLI tool to transmit and receive messages from an off board host to view debug information and control RF board through USB interface, reducing field test setup time by 20%",
+        "Managed SQLite-based telemetry database to log 1000+ UAV location and user equipments data points for testing, improving real-time 5G network monitoring and diagnostics",
       ],
     },
     {
@@ -63,16 +63,8 @@ export const SITE_CONTENT: SiteContent = {
   ],
   projects: [
     {
-      name: "Spotifu Music",
-      summary: "A music streaming app that emulates Spotify's core features.",
-      linkPreview: "/",
-      linkSource: "https://github.com/immois/astro-zen",
-      image: "/spotifu.png",
-      category: "Engineering",
-    },
-    {
-      name: "Crypto-Traditional MArket Correlation Analysis",
-      summary: "A social network that replicates the features of Instagram",
+      name: "Crypto-Traditional Market Correlation Analysis",
+      summary: "Conducted time-series correlation and stress-period analysis on cryptocurrency and traditional assets using Python, SQL, and financial market data to evaluate diversification benefits and risk behavior.",
       linkPreview: "/",
       linkSource: "https://github.com/immois/astro-zen",
       image: "/clone-ig.png",
@@ -88,19 +80,29 @@ export const SITE_CONTENT: SiteContent = {
     },
     {
       name: "Growth Stock Porfolio",
-      summary: "A social network that replicates the features of Instagram",
+      summary: "Stock portfolio visualization extracting real-time financial metrics through an automated data pipeline",
       linkPreview: "/",
       linkSource: "https://github.com/immois/astro-zen",
       image: "/clone-ig.png",
       category: "Engineering",
     },
     {
-      name: "Secure Voting Machine (Secuirty Module)",
-      summary: "A social network that replicates the features of Instagram",
+      name: "Secure Voting Machine VIP",
+      summary: 
+        "Conducted and presented technical research on AES encryption standards and implemented secure data processing in FPGA-based voting systems",
       linkPreview: "/",
+      linkSource: "https://github.gatech.edu/ConfigurableComputing/vip/wiki/Start-Here#our-project",
+      image: "/vip-cover.png",
+      category: "Research",
+    },
+    {
+      name: "PaceTune App",
+      summary: 
+        "Developed iOS application that dynamically adjusted audio volume based on user's running pace",
+      linkPreview: "https://docs.google.com/presentation/d/14urMT_S4MvroiB6eAHTOOy8TPV9Ai1iCTWsEMKqrIgM/edit?usp=sharing",
       linkSource: "https://github.com/immois/astro-zen",
-      image: "/clone-ig.png",
-      category: "Engineering",
+      image: "/pace-cover.png",
+      category: "Research",
     },
   ],
 };
