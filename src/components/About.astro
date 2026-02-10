@@ -1,0 +1,27 @@
+---
+import type { AboutProps } from "@types";
+
+type Props = AboutProps;
+
+const { description, image } = Astro.props;
+---
+
+<section class="py-24 md:py-32" id="about">
+  <h2 class="mb-12 font-serif text-4xl font-bold text-white">About Me</h2>
+  
+  <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-3 items-center">
+    <div class="flex justify-center md:justify-start lg:col-span-1">
+      <img
+        src={image}
+        alt="Profile"
+        class="rounded-2xl w-full max-w-md object-cover shadow-xl"
+      />
+    </div>
+    
+    <div class="lg:col-span-2">
+      <p class="text-base text-neutral md:text-lg whitespace-pre-line">
+        {description}
+      </p>
+    </div>
+  </div>
+</section>

@@ -23,10 +23,10 @@ const categories = [
 ---
 
 <Section text="Featured Projects" href="projects">
-  <div class="space-y-16">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
     {categories.map((category, categoryIndex) => (
       <div class="category-section">
-        <h2 class="text-3xl font-bold text-primary mb-8">{category.name}</h2>
+        <h2 class="text-2xl font-bold text-primary mb-6">{category.name}</h2>
         
         <div class="relative" data-category={categoryIndex}>
           <!-- Card Stack Container -->
@@ -39,13 +39,13 @@ const categories = [
                   data-index={index}
                   style={`transform: translateY(${index * 20}px) scale(${1 - index * 0.05}); z-index: ${category.projects.length - index};`}
                 >
-                  <div class="relative z-[1] grid h-full w-full grid-rows-2 rounded-2xl bg-[#1c232d]/85 border border-neutral/20 before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/raja.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[5%] before:content-[''] sm:grid-cols-2 sm:grid-rows-1">
-                    <div class="px-6 pt-12">
-                      <h3 class="mb-5 font-serif text-3xl font-medium text-primary">
+                  <div class="relative z-[1] grid h-full w-full grid-rows-2 rounded-2xl bg-[#1c232d]/85 border border-neutral/20 before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/raja.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[5%] before:content-[''] sm:grid-cols-1 sm:grid-rows-2">
+                    <div class="px-6 pt-8">
+                      <h3 class="mb-4 font-serif text-2xl font-medium text-primary">
                         {name}
                       </h3>
-                      <p class="text-base text-neutral">{summary}</p>
-                      <div class="flex gap-5 pt-10 text-white">
+                      <p class="text-sm text-neutral line-clamp-3">{summary}</p>
+                      <div class="flex gap-4 pt-6 text-white text-sm">
                         <a
                           href={linkSource}
                           target="_blank"
@@ -66,7 +66,7 @@ const categories = [
                     </div>
                     <div class="flex items-end justify-end overflow-hidden">
                       <Image
-                        class="h-full w-[95%] rounded-ss-xl rounded-ee-2xl object-none object-left-top sm:h-[85%] sm:w-full"
+                        class="h-full w-[95%] rounded-ss-xl rounded-ee-2xl object-cover object-left-top"
                         src={image}
                         alt={name}
                         width="736"

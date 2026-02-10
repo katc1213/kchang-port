@@ -30,6 +30,14 @@ export const SITE_CONTENT: SiteContent = {
       "Computer Engineering Undergraduate with Minor in FinTech",
     email: "kc6107j@gmail.com",
   },
+  about: {
+    description: `
+      Hi, I'm Katherine! I am currently a fourth-year Computer Engineering undergraduate at Georgia Tech with concentrations in Distributed Systems and Information Internetworks. I specialize in database management and data analysis revolving around financial technology.
+
+      Over the years, I’ve honed my skills in building technical projects and worked in diverse environments, from network labs to commercial banking. I thrive in fast-paced environments and enjoy discovering ways in how technology can be integrated in financial institutions or services for optimization. 
+    `,
+    image: "/katherine-mini-pfp.jpg", 
+  },
   experience: [
     {
       company: "Citizens Bank",
@@ -40,6 +48,16 @@ export const SITE_CONTENT: SiteContent = {
         "Implemented advanced memory management and code optimization techniques, resulting in a reduction in application load time by 40% and a decrease in crashes by 25%. This significantly improved user experience and increased user retention by 20%.",
         "I led a team of developers in building and integrating new features using Jetpack Android components such as LiveData and ViewModel. This enabled us to build scalable and maintainable applications, reducing the crash rate by 20% and speeding up the time to delivery of new features by 15%.",
         "Integrated Google Pay for in-app purchases, resulting in a 35% increase in mobile transaction revenue. Additionally, implemented Firebase Analytics to gain insights into user behavior, enabling data-driven optimizations and a 30% increase in user retention.",
+      ],
+    },
+    {
+      company: "Georgia Tech School of Electrical and Computer Engineering",
+      position: "ECE 1100 Undergraduate Teaching Assistant",
+      startDate: "January 2026",
+      endDate: "Present",
+      summary: [
+        "Held resume review sessions, project presentations, and interact with new or transfer ECE students.",
+        "Provide career development resources and support students with guidance in major course scheduling.",
       ],
     },
     {
